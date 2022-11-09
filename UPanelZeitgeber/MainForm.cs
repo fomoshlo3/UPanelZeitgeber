@@ -19,10 +19,9 @@ namespace UPanelZeitgeber
                 CmdStartTimer.Text = "Pause";
                 _GrafischeUhr = new Timer();
                 _GrafischeUhr.Enabled = true;
-                _GrafischeUhr.Interval = 40 ;
+                _GrafischeUhr.Interval = 40;
                 _GrafischeUhr.Tick += new EventHandler(GrafischeUhr_Tick);
                 Clicked = true;
-                
             }
             else
             {
@@ -43,10 +42,13 @@ namespace UPanelZeitgeber
 
         private void GrafischeUhr_Tick(object sender, EventArgs e)
         {
-            /* switch (_grafischeUhr. "ElapsedTime") entweder die Zeit oder die zurückgelegte Strecke switchen, Strecke
+            /* TODO: Idee: die panels nacheinander vom Mittelpunkt wegstreben lassen nachdem 7.5 sekunden erreicht sind
+             * umdrehen und zur Ausgangsposition zurück 
+             * 
+             * switch (_grafischeUhr. "ElapsedTime") entweder die Zeit oder die zurückgelegte Strecke switchen, Strecke
              * bietet sich an wenn Form !responsive gemacht wird (selbst da könnt man aber sicher teilen)
              * Zeit nur wenn ich eine Pausefunktion einführe, da ich ja den Uhrenwert in millisekunden mitzählen will
-             * ein mappen wäre hier vielleicht ungenau da ja hier doubles entstehen werden.
+             * ein mappen wäre hier vielleicht ungenau da ja hier doubles entstehen werden, sollte ich aber trotzdem probieren
              *  case ElapsedTime < 7500 : 
              *  case ElapsedTime < 15000 :
              *  case ElapsedTime < 22500 :
