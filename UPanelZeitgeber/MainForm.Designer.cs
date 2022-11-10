@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.CmdStartTimer = new System.Windows.Forms.Button();
             this.CmdClose = new System.Windows.Forms.Button();
             this.PnSquare1 = new System.Windows.Forms.Panel();
             this.PnSquare2 = new System.Windows.Forms.Panel();
             this.PnSquare3 = new System.Windows.Forms.Panel();
             this.PnSquare4 = new System.Windows.Forms.Panel();
+            this.GrafischeUhr = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // CmdStartTimer
@@ -92,6 +94,11 @@
             this.PnSquare4.Size = new System.Drawing.Size(20, 20);
             this.PnSquare4.TabIndex = 5;
             // 
+            // GrafischeUhr
+            // 
+            this.GrafischeUhr.Interval = 40;
+            this.GrafischeUhr.Tick += new EventHandler(GrafischeUhr_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -117,5 +124,6 @@
         private Panel PnSquare2;
         private Panel PnSquare3;
         private Panel PnSquare4;
+        private System.Windows.Forms.Timer GrafischeUhr;
     }
 }

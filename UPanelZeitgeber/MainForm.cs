@@ -4,7 +4,6 @@ namespace UPanelZeitgeber
 {
     public partial class MainForm : Form
     {
-        private Timer _GrafischeUhr;
         private bool Clicked = false;
 
         public MainForm()
@@ -17,17 +16,15 @@ namespace UPanelZeitgeber
             if(!Clicked)
             {
                 CmdStartTimer.Text = "Pause";
-                _GrafischeUhr = new Timer();
-                _GrafischeUhr.Enabled = true;
-                _GrafischeUhr.Interval = 40;
-                _GrafischeUhr.Tick += new EventHandler(GrafischeUhr_Tick);
+
+                GrafischeUhr.Start();// = true;
                 Clicked = true;
             }
             else
             {
                 CmdStartTimer.Text = "Start";
-                _GrafischeUhr.Stop();
-                _GrafischeUhr.Tick -= new EventHandler(GrafischeUhr_Tick);
+                GrafischeUhr.Stop();
+                
                 Clicked = false;
             }
         }
@@ -36,7 +33,7 @@ namespace UPanelZeitgeber
 
         private void CmdClose_Click(object sender, EventArgs e)
         {
-            _GrafischeUhr.Stop();
+            if(Clicked)GrafischeUhr.Stop();
             Close();
         }
 
